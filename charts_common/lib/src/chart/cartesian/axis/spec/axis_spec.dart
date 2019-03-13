@@ -16,6 +16,7 @@
 import 'package:meta/meta.dart' show immutable;
 
 import '../../../../common/color.dart' show Color;
+import '../../../../common/text_style.dart' show FontWeight;
 import '../../../../common/graphics_factory.dart' show GraphicsFactory;
 import '../../../common/chart_context.dart' show ChartContext;
 import '../axis.dart' show Axis;
@@ -116,9 +117,10 @@ abstract class RenderSpec<D> {
 class TextStyleSpec {
   final String fontFamily;
   final int fontSize;
+  final FontWeight fontWeight;
   final Color color;
 
-  const TextStyleSpec({this.fontFamily, this.fontSize, this.color});
+  const TextStyleSpec({this.fontFamily, this.fontSize, this.fontWeight, this.color});
 
   @override
   bool operator ==(Object other) {
@@ -126,6 +128,7 @@ class TextStyleSpec {
         (other is TextStyleSpec &&
             fontFamily == other.fontFamily &&
             fontSize == other.fontSize &&
+            fontWeight == other.fontWeight &&
             color == other.color);
   }
 
@@ -133,6 +136,7 @@ class TextStyleSpec {
   int get hashCode {
     int hashcode = fontFamily?.hashCode ?? 0;
     hashcode = (hashcode * 37) + fontSize?.hashCode ?? 0;
+    hashcode = (hashcode * 37) + fontWeight?.hashCode ?? 0;
     hashcode = (hashcode * 37) + color?.hashCode ?? 0;
     return hashcode;
   }
