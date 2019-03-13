@@ -14,20 +14,22 @@
 // limitations under the License.
 
 import 'dart:ui' show hashValues;
-import 'package:charts_common/common.dart' as common show Color, TextStyle;
+import 'package:charts_common/common.dart' as common show Color, TextStyle, FontWeight;
 
 class TextStyle implements common.TextStyle {
   int fontSize;
   String fontFamily;
   common.Color color;
+  common.FontWeight fontWeight;
 
   @override
   bool operator ==(Object other) =>
       other is TextStyle &&
       fontSize == other.fontSize &&
+      fontWeight == other.fontWeight &&
       fontFamily == other.fontFamily &&
       color == other.color;
 
   @override
-  int get hashCode => hashValues(fontSize, fontFamily, color);
+  int get hashCode => hashValues(fontSize, fontWeight, fontFamily, color);
 }

@@ -13,14 +13,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:ui' show TextAlign, TextDirection;
+import 'dart:ui' show FontWeight, TextAlign, TextDirection;
 import 'package:charts_common/common.dart' as common
     show
-        MaxWidthStrategy,
-        TextElement,
-        TextDirection,
-        TextMeasurement,
-        TextStyle;
+    MaxWidthStrategy,
+    TextElement,
+    TextDirection,
+    TextMeasurement,
+    TextStyle,
+    FontWeight;
+import 'package:charts_flutter/src/util.dart';
 import 'package:flutter/rendering.dart'
     show Color, TextBaseline, TextPainter, TextSpan, TextStyle;
 
@@ -149,7 +151,8 @@ class TextElement implements common.TextElement {
             style: new TextStyle(
                 color: color,
                 fontSize: textStyle.fontSize.toDouble(),
-                fontFamily: textStyle.fontFamily)))
+                fontFamily: textStyle.fontFamily,
+                fontWeight: resolveFontWeight(textStyle.fontWeight))))
       ..textDirection = TextDirection.ltr
       // TODO Flip once textAlign works
       ..textAlign = TextAlign.left

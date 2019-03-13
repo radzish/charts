@@ -24,7 +24,7 @@ import 'package:charts_common/src/common/text_element.dart'
     show TextDirection, TextElement, MaxWidthStrategy;
 import 'package:charts_common/src/common/text_measurement.dart'
     show TextMeasurement;
-import 'package:charts_common/src/common/text_style.dart' show TextStyle;
+import 'package:charts_common/src/common/text_style.dart' show TextStyle, FontWeight;
 import 'package:charts_common/src/chart/cartesian/axis/spec/axis_spec.dart'
     show TextStyleSpec;
 import 'package:charts_common/src/chart/common/chart_canvas.dart'
@@ -57,6 +57,7 @@ class FakeTextStyle implements TextStyle {
   Color color;
   int fontSize;
   String fontFamily;
+  FontWeight fontWeight;
 }
 
 /// Fake [TextElement] which returns text length as [horizontalSliceWidth].

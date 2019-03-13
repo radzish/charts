@@ -13,6 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:ui';
+
 import 'package:flutter/rendering.dart'
     show
         RenderBox,
@@ -20,6 +22,7 @@ import 'package:flutter/rendering.dart'
         RenderPointerListener,
         RenderCustomMultiChildLayoutBox;
 import 'chart_container.dart' show ChartContainerRenderObject;
+import 'package:charts_common/common.dart' as common show FontWeight;
 
 /// Get the [ChartContainerRenderObject] from a [RenderBox].
 ///
@@ -42,4 +45,8 @@ ChartContainerRenderObject getChartContainerRenderObject(RenderBox box) {
   assert(chartContainerRenderObject is ChartContainerRenderObject);
 
   return chartContainerRenderObject as ChartContainerRenderObject;
+}
+
+FontWeight resolveFontWeight(common.FontWeight fontWeight) {
+  return fontWeight != null ? FontWeight.values[fontWeight.index] : null;
 }
