@@ -387,6 +387,15 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
         var animatingBar = barStackList.firstWhere((B bar) => bar.key == barKey,
             orElse: () => null);
 
+        // This workaround is to make sure positive (or null) bar values not to override negative ones.
+        // Point is that negative bars share same bar keys with positive
+        // as they have same barStackIndex in details BaseBarRendererElement.
+        // This is caused by code in preprocessSeries()
+        // where positive (or null) values separated from negative
+        if (measureIsNull) {
+          continue;
+        }
+
         // If we don't have any existing bar element, create a new bar and have
         // it animate in from the domain axis.
         // TODO: Animate bars in the middle of a stack from their

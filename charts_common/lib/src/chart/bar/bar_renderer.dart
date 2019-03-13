@@ -441,9 +441,13 @@ class BarRenderer<D>
 
     Rectangle<int> bounds;
     if (this.renderingVertically) {
-      // Rectangle clamps to zero width/height
-      bounds = new Rectangle<int>(domainStart, measureEnd,
-          domainEnd - domainStart, measureStart - measureEnd);
+      // Support for negative values
+      // Taken from: https://github.com/google/charts/pull/145
+      var top = measureEnd;
+      if (measureStart < measureEnd) {
+        top = measureStart;
+      }
+      bounds = new Rectangle<int>(domainStart, top, domainEnd - domainStart, (measureStart - measureEnd).abs());
     } else {
       // Rectangle clamps to zero width/height
       bounds = new Rectangle<int>(min(measureStart, measureEnd), domainStart,
