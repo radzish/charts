@@ -193,6 +193,7 @@ class BarLabelDecorator<D> extends BarRendererDecorator<D> {
     return graphicsFactory.createTextPaint()
       ..color = labelSpec?.color ?? Color.black
       ..fontFamily = labelSpec?.fontFamily
+      ..fontWeight = labelSpec?.fontWeight
       ..fontSize = labelSpec?.fontSize ?? 12;
   }
 

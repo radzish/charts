@@ -15,6 +15,10 @@
 
 import 'paint_style.dart' show PaintStyle;
 
+enum FontWeight {
+  w100, w200, w300, w400, w500, w600, w700, w800, w900
+}
+
 /// Paint properties of a text.
 abstract class TextStyle extends PaintStyle {
   int get fontSize;
@@ -22,4 +26,7 @@ abstract class TextStyle extends PaintStyle {
 
   String get fontFamily;
   set fontFamily(String fontFamily);
+
+  FontWeight get fontWeight;
+  set fontWeight(FontWeight fontWeight);
 }

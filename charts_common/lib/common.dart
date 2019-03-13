@@ -236,5 +236,5 @@ export 'src/common/symbol_renderer.dart'
 export 'src/common/text_element.dart'
     show TextElement, TextDirection, MaxWidthStrategy;
 export 'src/common/text_measurement.dart' show TextMeasurement;
-export 'src/common/text_style.dart' show TextStyle;
+export 'src/common/text_style.dart' show TextStyle, FontWeight;
 export 'src/data/series.dart' show Series, TypedAccessorFn;
